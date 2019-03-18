@@ -14,6 +14,7 @@ class api (object):
         self.window.title("tk-py")
         self.create_area()
         self.create_menu_bar()
+        self.create_status_bar()
 
     #Inciando o menu superior
     def create_menu_bar(self):
@@ -41,11 +42,27 @@ class api (object):
     def finaliza_software(self):
         self.window.quit()
     
+    #Criando a caixa de mensagem, atraves do modulo "messagebox", dentro da biblitoeca TKINTER
     def menu_about(self):
         msg = ("Acesse meu github - www.github.com/natanascimento")
          
         messagebox.showinfo("About developer of this program v 0.1", msg)
+
+    #Para criar a barra de status na parte inferior
+    def create_status_bar(self):
+        self.status = Label (self.window, text = "Welcome",
+            bd = 1, relief=SUNKEN, anchor=W)
+        self.status.pack(side=BOTTOM, fill=X)
+
+    def clear_status_bar(self):
+        self.status.config(text = "")
+        self.status.update_idletasks()
     
+    def set_status_bar(self,texto):
+        self.status.config(text = texto)
+        self.status.update_idletasks()
+
+
     #Deixar a GUI com uma área em branco
     def create_area(self):
         pass
