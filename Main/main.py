@@ -1,3 +1,6 @@
+# Copyright (c) 2019 Natan Nascimento (natanascimentom@outlook.com)
+# Estudo dirigido ao uso da biblioteca Tkinter no Python
+
 from tkinter import *
 
 class api (object):
