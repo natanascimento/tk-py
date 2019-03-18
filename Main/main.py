@@ -2,6 +2,7 @@
 # Estudo dirigido ao uso da biblioteca Tkinter no Python
 
 from tkinter import *
+from tkinter import messagebox
 
 class api (object):
     #Padrão para criação de GUI
@@ -26,12 +27,24 @@ class api (object):
         #Cria o formato cascata ao passar na aba
         menubar.add_cascade(label="File", menu=filemenu)
 
+        #Cria a opção Help na barra de menu superior ao passar em cima terá o About
+        help_menu= Menu(menubar, tearoff=0)
+        help_menu.add_command(label="About", command=self.menu_about)
+        
+        #Cria o formato cascata ao passar na aba
+        menubar.add_cascade(label="Help", menu=help_menu)
+
         #Da o show de todo o menu
         self.window.config(menu=menubar)
 
     #Inicializador de comandos
     def finaliza_software(self):
         self.window.quit()
+    
+    def menu_about(self):
+        msg = ("Acesse meu github - www.github.com/natanascimento")
+         
+        messagebox.showinfo("About developer of this program v 0.1", msg)
     
     #Deixar a GUI com uma área em branco
     def create_area(self):
