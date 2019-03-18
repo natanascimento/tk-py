@@ -3,6 +3,7 @@
 
 from tkinter import *
 from tkinter import messagebox
+from time import strftime
 
 class api (object):
     #Padrão para criação de GUI
@@ -23,9 +24,10 @@ class api (object):
         
         #Cria a opção File na barra de menu associando ao nome EXIT ao passar em cima
         filemenu = Menu(menubar, tearoff=0)
+        filemenu.add_command(label="Shutdown",command=self.finaliza_software)
         filemenu.add_command(label="Exit", command=self.finaliza_software)
-        
-        #Cria o formato cascata ao passar na aba
+    
+        #Cria o formato cascata
         menubar.add_cascade(label="File", menu=filemenu)
 
         #Cria a opção Help na barra de menu superior ao passar em cima terá o About
@@ -38,21 +40,25 @@ class api (object):
         #Da o show de todo o menu
         self.window.config(menu=menubar)
 
+    #######################################################
     #Inicializador de comandos
+    ##############################
     def finaliza_software(self):
         self.window.quit()
     
     #Criando a caixa de mensagem, atraves do modulo "messagebox", dentro da biblitoeca TKINTER
     def menu_about(self):
         msg = ("Acesse meu github - www.github.com/natanascimento")
-         
         messagebox.showinfo("About developer of this program v 0.1", msg)
 
+    #######################################################
+
     #Para criar a barra de status na parte inferior
-    def create_status_bar(self):
-        self.status = Label (self.window, text = "Welcome",
-            bd = 1, relief=SUNKEN, anchor=W)
+
+    def create_status_bar(self): 
+        self.status = Label (self.window,text="Welcome",bd = 1, relief=SUNKEN, anchor=W)
         self.status.pack(side=BOTTOM, fill=X)
+
 
     def clear_status_bar(self):
         self.status.config(text = "")
